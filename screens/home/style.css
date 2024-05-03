@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #7CC6B8;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+main {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.carousel {
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto; /* Manter a altura relativa em relação à largura da viewport */
+    max-height: 400px; /* Definir uma altura máxima para evitar que as imagens fiquem muito altas */
+    border-radius: 8px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#conteudo {
+    padding: 20px;
+}
+
+.pagina {
+    display: none;
+}
+
+.pagina.ativa {
+    display: block;
+}
+
+footer {
+    background-color: #0e0c0c;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+    header, footer {
+        padding: 10px 0;
+    }
+    .footer-links {
+        flex-direction: row;
+    }
+    .footer-links a {
+        margin: 5px 0;
+    }
+}
