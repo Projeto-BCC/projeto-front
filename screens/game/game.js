@@ -1,12 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Variáveis para as barras de vida e nomes
-    let vidaPlayer = 30; // Vida inicial do jogador
-    let vidaZika = 100; // Vida inicial do Zika
-    const nomePlayer = "Player"; // Nome do jogador
-    const nomeZika = "Zika"; // Nome do Zika
-    let perguntasRespondidas = 0; // Contador de perguntas respondidas
-    let perguntas = []; // Array de perguntas
-    let perguntasAleatorias = []; // Array de perguntas em ordem aleatória
+    let vidaPlayer = 30; 
+    let vidaZika = 100;
+    const nomePlayer = "Player"; 
+    const nomeZika = "Zika"; 
+    let perguntasRespondidas = 0; 
+    let perguntas = []; 
+    let perguntasAleatorias = []; 
 
     // Função para atualizar as barras de vida
     function atualizarBarrasVida() {
