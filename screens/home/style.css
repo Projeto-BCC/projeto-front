@@ -17,6 +17,7 @@ header {
 main {
     flex-grow: 1;
     padding: 20px;
+    margin: 5px;
 }
 
 .carousel {
@@ -59,6 +60,52 @@ nav ul li a {
 .pagina.ativa {
     display: block;
 }
+
+.dengue {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.temporeal{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+    border-radius: 8px;
+    width: 8vw;
+    height: 3vw;
+}
+    
+.casos,
+.mortes {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    border-radius: 8px;
+    width: 8vw;
+    height: 3vw;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+@media screen and (max-width: 600px) {
+    .temporeal,
+    .casos,
+    .mortes {
+        width: 40%; /* Redimensionar os elementos para ocupar 40% da largura da tela */
+        height: 10vw; /* Ajustar a altura proporcionalmente */
+        margin-bottom: 1vw; /* Ajustar a margem inferior para uma separação visual */
+    }
+}
+
 
 footer {
     background-color: #0e0c0c;

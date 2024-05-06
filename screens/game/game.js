@@ -1,69 +1,118 @@
-const perguntas = [
-    { pergunta: "Qual é o agente transmissor da dengue?", alternativas: ["Aedes aegypti", "Anopheles", "Culex", "Rhipicephalus"], resposta: "Aedes aegypti" },
-    { pergunta: "Qual o período de incubação do vírus da dengue no organismo humano?", alternativas: ["1 dia", "3 dias", "5 dias", "7 dias"], resposta: "5 dias" },
-    { pergunta: "Quais são os sintomas mais comuns da dengue?", alternativas: ["Febre alta, dor de cabeça e dor muscular", "Tosse e coriza", "Dor abdominal e diarreia", "Manchas vermelhas na pele"], resposta: "Febre alta, dor de cabeça e dor muscular" },
-    { pergunta: "Qual é a principal medida de prevenção contra a dengue?", alternativas: ["Uso de repelentes", "Vacinação", "Eliminação de criadouros do mosquito", "Uso de mosquiteiros"], resposta: "Eliminação de criadouros do mosquito" }
-];
+document.addEventListener("DOMContentLoaded", function() {
+    // Variáveis para as barras de vida e nomes
+    let vidaPlayer = 30; // Vida inicial do jogador
+    let vidaZika = 100; // Vida inicial do Zika
+    const nomePlayer = "Player"; // Nome do jogador
+    const nomeZika = "Zika"; // Nome do Zika
+    let perguntasRespondidas = 0; // Contador de perguntas respondidas
+    let perguntas = []; // Array de perguntas
+    let perguntasAleatorias = []; // Array de perguntas em ordem aleatória
 
-let perguntaAtual = 0;
-let respostasCorretas = 0;
+    // Função para atualizar as barras de vida
+    function atualizarBarrasVida() {
+        document.querySelector(".vida-atual-player").style.width = (vidaPlayer * 100 / 30) + "%";
+        document.querySelector(".vida-player-valor").textContent = vidaPlayer;
+        document.querySelector(".vida-atual-zika").style.width = (vidaZika * 100 / 100) + "%";
+        document.querySelector(".vida-zika-valor").textContent = vidaZika;
+    }
 
-const perguntaElement = document.getElementById("pergunta");
-const alternativasElement = document.getElementById("alternativas");
-const proximoButton = document.getElementById("proximo");
-const resultadoElement = document.getElementById("resultado");
-const iniciarButton = document.getElementById("iniciar");
+    // Função para exibir a mensagem de vitória
+    function exibirMensagemVitoria(vencedor) {
+        document.getElementById("mensagem-vitoria").textContent = `${vencedor} venceu o jogo!`;
+        document.getElementById("mensagem-vitoria").style.display = "block";
+        document.getElementById("btn-iniciar").textContent = "Reiniciar";
+    }
 
-function iniciarJogo() {
-    iniciarButton.style.display = "none";
-    perguntaElement.style.display = "block";
-    alternativasElement.style.display = "block";
-    proximoButton.style.display = "block";
+    // Função para verificar a resposta do jogador
+    function verificarResposta(respostaJogador, pergunta) {
+        const respostaCorreta = pergunta.querySelector(".alternativa").getAttribute("data-resposta");
+        if (respostaJogador.toLowerCase() === respostaCorreta) {
+            // Resposta correta: o Zika toma 10 de dano
+            vidaZika -= 10;
+        } else {
+            // Resposta incorreta: o jogador toma 10 de dano
+            vidaPlayer -= 10;
+        }
+        atualizarBarrasVida();
 
-    exibirPergunta();
-}
+        // Verificar se todas as perguntas foram respondidas
+        perguntasRespondidas++;
+        if (perguntasRespondidas === perguntasAleatorias.length) {
+            // Todas as perguntas foram respondidas
+            if (vidaPlayer <= 0) {
+                exibirMensagemVitoria(nomeZika);
+            } else {
+                exibirMensagemVitoria(nomePlayer);
+            }
+        }
+    }
 
-function exibirPergunta() {
-    const pergunta = perguntas[perguntaAtual];
-    perguntaElement.innerText = pergunta.pergunta;
+    // Função para embaralhar as perguntas
+    function embaralharPerguntas() {
+        perguntasAleatorias = perguntas.slice(); // Copia o array de perguntas
+        for (let i = perguntasAleatorias.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [perguntasAleatorias[i], perguntasAleatorias[j]] = [perguntasAleatorias[j], perguntasAleatorias[i]];
+        }
+    }
 
-    alternativasElement.innerHTML = "";
-    pergunta.alternativas.forEach((alternativa, index) => {
-        const alternativaButton = document.createElement("button");
-        alternativaButton.innerText = alternativa;
-        alternativaButton.addEventListener("click", () => verificarResposta(alternativa));
-        alternativasElement.appendChild(alternativaButton);
+    // Função para exibir a próxima pergunta
+    function exibirProximaPergunta() {
+        const perguntasAtivas = document.querySelectorAll(".pergunta.ativa");
+        perguntasAtivas.forEach((pergunta, index) => {
+            pergunta.classList.remove("ativa");
+        });
+
+        const proximaPergunta = perguntasAtivas[0].nextElementSibling;
+        if (proximaPergunta) {
+            proximaPergunta.classList.add("ativa");
+        } else {
+            console.error("Não há próxima pergunta.");
+        }
+    }
+
+    // Função para iniciar ou reiniciar o jogo
+    function iniciarOuReiniciarJogo() {
+        if (document.getElementById("btn-iniciar").textContent === "Iniciar Jogo") {
+            iniciarJogo();
+        } else {
+            reiniciarJogo();
+        }
+    }
+
+    // Função para iniciar o jogo
+    function iniciarJogo() {
+        vidaPlayer = 30;
+        vidaZika = 100;
+        perguntasRespondidas = 0;
+        atualizarBarrasVida();
+        embaralharPerguntas();
+        const primeiraPergunta = document.querySelector('.pergunta');
+        primeiraPergunta.classList.add('ativa');
+        document.getElementById('btn-iniciar').textContent = 'Reiniciar Jogo';
+    }
+
+    // Função para reiniciar o jogo
+    function reiniciarJogo() {
+        vidaPlayer = 30;
+        vidaZika = 100;
+        perguntasRespondidas = 0;
+        atualizarBarrasVida();
+        embaralharPerguntas();
+        document.getElementById('mensagem-vitoria').style.display = 'none';
+        const primeiraPergunta = document.querySelector('.pergunta');
+        primeiraPergunta.classList.add('ativa');
+    }
+
+    // Adicionar evento de clique para iniciar ou reiniciar o jogo
+    document.getElementById("btn-iniciar").addEventListener("click", iniciarOuReiniciarJogo);
+
+    // Adicionar evento de clique para as alternativas das perguntas
+    const alternativas = document.querySelectorAll(".alternativa");
+    alternativas.forEach(alternativa => {
+        alternativa.addEventListener("click", function() {
+            verificarResposta(this.getAttribute("data-resposta"), this.parentElement);
+            setTimeout(exibirProximaPergunta, 5000);
+        });
     });
-}
-
-function verificarResposta(respostaSelecionada) {
-    const pergunta = perguntas[perguntaAtual];
-    if (respostaSelecionada === pergunta.resposta) {
-        respostasCorretas++;
-        resultadoElement.innerText = "Resposta correta!";
-    } else {
-        resultadoElement.innerText = "Resposta incorreta!";
-    }
-
-    perguntaAtual++;
-    if (perguntaAtual < perguntas.length) {
-        exibirPergunta();
-    } else {
-        finalizarJogo();
-    }
-}
-
-function finalizarJogo() {
-    perguntaElement.innerText = "Fim do jogo!";
-    alternativasElement.innerHTML = "";
-    proximoButton.style.display = "none";
-
-    if (respostasCorretas >= 3) {
-        resultadoElement.innerText = "Parabéns! Você acertou " + respostasCorretas + " perguntas.";
-    } else {
-        resultadoElement.innerText = "Você não acertou o número mínimo de perguntas para ganhar.";
-    }
-}
-
-// Adiciona evento de clique ao botão de iniciar jogo
-iniciarButton.addEventListener("click", iniciarJogo);
+});

@@ -23,8 +23,10 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
-        <script src="game.js"></script>
+        <script src="./game.js"></script>
         <script src="../../script.js"></script>
+        <script src="https://kit.fontawesome.com/925a57dc9a.js" crossorigin="anonymous"></script>
+
 
 </head>
 
@@ -36,13 +38,35 @@
 
     <main>
 
-        <div class="container">
-            <h1>Jogo de Perguntas e Respostas - Dengue</h1>
-            <button id="iniciar">Iniciar Jogo</button>
-            <div id="pergunta" style="display: none;"></div>
-            <div id="alternativas" style="display: none;"></div>
-            <button id="proximo" style="display: none;">Próxima Pergunta</button>
-            <div id="resultado" style="display: none;"></div>
+        <div class="hp">
+        <div class="vida-player">
+            <div class="vida-atual-player"></div>
+            <span>Player (vida: <span class="vida-player-valor">30</span>)</span>
+        </div>
+        <div class="vida-zika">
+            <div class="vida-atual-zika"></div>
+            <span>Zika (vida: <span class="vida-zika-valor">100</span>)</span>
+        </div>
+        </div>
+        <button id="btn-iniciar">Iniciar Jogo</button>
+        <div id="mensagem-vitoria" style="display: none;"></div>
+        
+        <div class="pergunta-container">
+            <div class="pergunta" data-numero="1">Quais são os principais sintomas da dengue?
+                <div class="alternativa" data-resposta="febre, dor de cabeça, dor muscular e dor nas articulações">a) Febre, dor de cabeça, dor muscular e dor nas articulações</div>
+                <div class="alternativa" data-resposta="náuseas e vômitos">b) Náuseas e vômitos</div>
+                <div class="alternativa" data-resposta="tosse e coriza">c) Tosse e coriza</div>
+            </div>
+            <div class="pergunta" data-numero="2">Qual é o principal vetor da dengue?
+                <div class="alternativa" data-resposta="aedes aegypti">a) Aedes aegypti</div>
+                <div class="alternativa" data-resposta="culex quinquefasciatus">b) Culex quinquefasciatus</div>
+                <div class="alternativa" data-resposta="anopheles">c) Anopheles</div>
+            </div>
+            <div class="pergunta" data-numero="3">Qual é a forma de prevenção mais eficaz contra a dengue?
+                <div class="alternativa" data-resposta="eliminar criadouros do mosquito, como recipientes com água parada">a) Eliminar criadouros do mosquito, como recipientes com água parada</div>
+                <div class="alternativa" data-resposta="usar repelente todos os dias">b) Usar repelente todos os dias</div>
+                <div class="alternativa" data-resposta="tomar vitamina C regularmente">c) Tomar vitamina C regularmente</div>
+            </div>
         </div>
 
     </main>
@@ -51,9 +75,9 @@
         <nav class="footer">
             <div class="footer-links"></div>
             <ul>
-                <li><a href="#" onclick="home()">Home</a></li>
-                <li><a href="#" onclick="info()">Info</a></li>
-                <li><a href="#" >Game</a></li>
+                <li><a href="#" onclick="home()"><i class="fa-solid fa-house"></i></a></li>
+                <li><a href="#" onclick="info()"><i class="fa-solid fa-mosquito"></i></a></li>
+                <li><a href="#" onclick="game()"><i class="fa-solid fa-gamepad"></i></a></li>
             </ul>
         </nav>
     </footer>

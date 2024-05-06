@@ -59,28 +59,61 @@ footer {
     }
 }
 
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
+.hp{
+    display: flex;
+    flex-direction: column;
 }
 
-#pergunta {
-    font-size: 20px;
-    margin-bottom: 20px;
+.vida-player, .vida-zika {
+    width: 200px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-bottom: 25px;
 }
 
-#alternativas {
-    margin-bottom: 20px;
+.vida-atual-player, .vida-atual-zika {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.5s ease-in-out; /* Animação de transição */
 }
 
-button {
+.vida-atual-player {
+    background-color: #007bff; /* Azul para o jogador */
+}
+
+.vida-atual-zika {
+    background-color: #dc3545; /* Vermelho para o Zika */
+}
+
+/* Estilos para o botão de iniciar o jogo */
+#btn-iniciar {
     padding: 10px 20px;
-    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-#resultado {
-    font-size: 18px;
+/* Estilos para a mensagem de vitória */
+#mensagem-vitoria {
+    font-size: 24px;
     font-weight: bold;
+    margin-top: 20px;
+    display: none;
 }
+
+    /* Estilos para as perguntas */
+    .pergunta {
+        display: none;
+        margin-bottom: 20px;
+    }
+
+    .pergunta.ativa {
+        display: block;
+    }
+
+    .alternativa {
+        margin-bottom: 10px;
+    }

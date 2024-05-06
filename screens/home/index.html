@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaiZika</title>
+    <title>Dengue em Foco</title>
 
     <link rel="stylesheet" href="style.css" />
 
@@ -23,18 +23,29 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
-        <script src="../../script.js"></script>
+    <script src="../../script.js"></script>
+    <script src="https://kit.fontawesome.com/925a57dc9a.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 
     <header>
-        <h1>Sai Zika</h1>
+        <h1>Dengue em Foco</h1>
     </header>
 
     <main>
-    
+
+        <div class="dengue">
+            <div class="temporeal">
+            <p>Informações em tempo real</p>
+            </div>
+            <div class="info">
+                <div class="casos">Casos: </div>
+                <div class="mortes">Mortes: </div>
+            </div>
+        </div>
+
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -78,9 +89,9 @@
         <nav class="footer">
             <div class="footer-links"></div>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#" onclick="info()">Info</a></li>
-                <li><a href="#" onclick="game()">Game</a></li>
+                <li><a href="#" onclick="home()"><i class="fa-solid fa-house"></i></a></li>
+                <li><a href="#" onclick="info()"><i class="fa-solid fa-mosquito"></i></a></li>
+                <li><a href="#" onclick="game()"><i class="fa-solid fa-gamepad"></i></a></li>
             </ul>
         </nav>
     </footer>
