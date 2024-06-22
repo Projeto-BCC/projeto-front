@@ -15,6 +15,7 @@ header {
 main {
     flex-grow: 1;
     padding: 20px;
+    font-family: 'Baloo Bhaijaan 2', cursive;
 }
 
 .carousel {
@@ -49,20 +50,6 @@ nav ul li a {
 }
 .pagina.ativa {
     display: block;
-}
-
-.etapas {
-    justify-content: space-between;
-}
-
-.pictures {
-    background-color: brown;
-    height: auto;
-    width: auto;
-}
-
-div.etapas h3{
-    text-align: center;
 }
 
 footer {
@@ -117,3 +104,62 @@ button {
     font-size: 18px;
     font-weight: bold;
 }
+
+
+.dt {
+    color:#DE4343;
+}
+
+.pt {
+    font-weight: bold;
+}
+.title{
+    font-size: 26px;
+    font-weight: bold;
+}
+.subtitle {
+    font-size: 20px;
+}
+img {   
+    max-width: 85%;
+    border-radius: 10px;
+    margin: 20px, auto;
+    margin-bottom: 20px;
+}
+
+.fase-content {
+    text-align: center;
+}
+.fases {
+    text-align: center;
+}
+
+p {
+    font-size: 20px;
+}
+
+
+.alerta {
+    display: inline-flex;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0px;
+}
+.alerta svg {
+    vertical-align: middle;
+    margin-right: 5px; 
+    margin-bottom: 5px;
+}
+
+.conteudo {
+    display: none;
+    font-size: 20px;
+    padding: 0px;
+}
+
+#conteudo {
+    padding: 0px;
+    font-size: 16px;
+}
+
