@@ -1,0 +1,149 @@
+body {
+  background-color: #F2F2F2;
+  padding-top: 48px; 
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container.bg-white {
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.card {
+  background-color: #FFF;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card .card-title.text-warning {
+  color: yellow;
+}
+
+.card .card-title.text-danger {
+  color: red;
+}
+
+.carousel-inner {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+}
+
+.news {
+  margin-top: 40px;
+}
+
+.more-news {
+  margin-top: 40px;
+}
+
+.casos-label {
+  font-size: 18px;
+}
+
+.more-news .card {
+  margin-bottom: 20px;
+}
+
+.texto-corrido {
+  text-align: justify;
+  text-justify: inter-word;
+  padding: 0px 0px 16px 0px;
+}
+
+header {
+  background-color: #243563;
+  color: white;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: gray;
+}
+
+header .navbar-brand p.title {
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+}
+
+header .navbar-nav {
+  margin-left: auto;
+}
+
+header .nav-item {
+  margin-left: 15px;
+}
+
+header .nav-link,
+header .navbar-toggler-icon {
+  color: white !important;
+}
+
+footer {
+  background-color: #243563;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+  header, footer {
+      padding: 10px 0;
+  }
+  .footer-links {
+      flex-direction: row;
+  }
+  .footer-links a {
+      margin: 5px 0;
+  }
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+      text-align: center;
+  }
+  .navbar-toggler {
+      border-color: white;
+  }
+  .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Change icon color to white */
+  }
+}
