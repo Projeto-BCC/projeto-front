@@ -1,0 +1,85 @@
+body {
+    background-color: #F2F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+header {
+    background-color: #243563;
+    color: white;
+}
+
+header .navbar-brand p.title-header {
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto;
+}
+
+header .navbar-nav {
+    margin-left: auto;
+}
+
+header .nav-item {
+    margin-left: 15px;
+}
+
+header .nav-link,
+header .navbar-toggler-icon {
+    color: white !important;
+}
+
+
+
+.container {
+    background-color: #fff;
+    text-align: center;
+    font-family: "Baloo Bhaijaan 2", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #000;
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+
+.titleDengue{
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+}
+
+.titleMain{
+    font-weight: bold;
+}
+
+.project, .coordinator, .members {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #000;
+}
+
+.development, .support{
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;
+}
+
+.imgContainer{
+    margin-top: 20px;
+}
+
+.logo {
+    width: 239px;
+    height: auto;
+}
+
+.extension {
+    width: 337px;
+    height: auto;
+}
