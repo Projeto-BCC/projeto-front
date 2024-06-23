@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaiZika</title>
+    <title>Dengue em Foco</title>
+
     <link rel="stylesheet" href="./game.css" />
+    <script src="./game.js"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -16,9 +19,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="./game.js"></script>
-    <script src="../../script.js"></script>
     <script src="https://kit.fontawesome.com/925a57dc9a.js" crossorigin="anonymous"></script>
+
+    <!---->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="navbar navbar-expand-lg fixed-top" style="background-color: #243563;">
@@ -31,55 +38,182 @@
                 <li class="nav-item"><a class="nav-link text-white" href="../index.html"><i class="fa-solid fa-house"></i> Página Inicial</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="../info/info.html"><i class="fa-solid fa-info-circle"></i> Informações</a></li>
                 <li class="nav-item"><a class="nav-link text-white" href="../game/game.html"><i class="fa-solid fa-gamepad"></i> Quiz</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../credits/credits.html"><i class="fa fa-address-card-o"></i> Créditos</a></li>
             </ul>
         </div>
     </header>
-    <main>
-        <div class="hp">
-            <div class="vida-player">
-                <div class="vida-atual-player"></div>
-                <span>Player (vida: <span class="vida-player-valor">30</span>)</span>
-            </div>
-            <div class="vida-zika">
-                <div class="vida-atual-zika"></div>
-                <span>Zika (vida: <span class="vida-zika-valor">100</span>)</span>
+    <div id="home-screen"> 
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <img src="./img/dengue_transparente.png" alt="Mosquito" class="mosquito-img">
+                    <h1 class="title">QUIZ - <span style="color: #DE4343;">COMBATE</span></h1>
+                    <p class="subtitle">Seja um Herói Contra a Doença</p>
+                    <button id="start-game">Começar</button>
+                </div>
             </div>
         </div>
-        <button id="btn-iniciar">Iniciar Jogo</button>
+    </div>
+    <main>
+        <div class="mainClass">
+        <div class="game-container">
+            <div class="player-container">
+                <div class="player-info">
+                    <img src="./img/player_transparente.png" alt="Player" class="player-sprite">
+                    <div class="player-stats">
+                        <span class="player-name">Player</span>
+                        <span class="player-level">Lv. 1</span>
+                        <div class="player-hp-bar">
+                            <div class="player-hp-fill"></div>
+                        </div>
+                        <span class="player-hp">30/30</span>
+                    </div>
+                </div>
+            </div>
+            <div class="zika-container">
+                <div class="zika-info">
+                    <img src="./img/dengue_transparente.png" alt="Zika" class="zika-sprite">
+                    <div class="zika-stats">
+                        <span class="zika-name">Zika</span>
+                        <span class="zika-level">Lv. 1</span>
+                        <div class="zika-hp-bar">
+                            <div class="zika-hp-fill"></div>
+                        </div>
+                        <span class="zika-hp">100/100</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="btn-iniciar">Iniciar Jogo</div>
         <div id="mensagem-vitoria" style="display: none;"></div>
-
         <div class="pergunta-container">
             <div class="pergunta" data-numero="1">Quais são os principais sintomas da dengue?
-                <div class="alternativa" data-resposta="febre, dor de cabeça, dor muscular e dor nas articulações">a)
-                    Febre, dor de cabeça, dor muscular e dor nas articulações</div>
-                <div class="alternativa" data-resposta="náuseas e vômitos">b) Náuseas e vômitos</div>
-                <div class="alternativa" data-resposta="tosse e coriza">c) Tosse e coriza</div>
-            </div>
-            <div class="pergunta" data-numero="2">Qual é o principal vetor da dengue?
-                <div class="alternativa" data-resposta="aedes aegypti">a) Aedes aegypti</div>
-                <div class="alternativa" data-resposta="culex quinquefasciatus">b) Culex quinquefasciatus</div>
-                <div class="alternativa" data-resposta="anopheles">c) Anopheles</div>
-            </div>
-            <div class="pergunta" data-numero="3">Qual é a forma de prevenção mais eficaz contra a dengue?
-                <div class="alternativa"
-                    data-resposta="eliminar criadouros do mosquito, como recipientes com água parada">a) Eliminar
-                    criadouros do mosquito, como recipientes com água parada</div>
-                <div class="alternativa" data-resposta="usar repelente todos os dias">b) Usar repelente todos os dias
+                <div class="alternativaContainer">
+                    <div class="alternativa" data-resposta="febre, dor de cabeça, dor muscular e dor nas articulações"
+                        data-resposta-certa="true">a) Febre, dor de cabeça, dor muscular e dor nas articulações</div>
+                    <div class="alternativa" data-resposta="náuseas e vômitos">b) Náuseas e vômitos</div>
+                    <div class="alternativa" data-resposta="tosse e coriza">c) Tosse e coriza</div>
                 </div>
-                <div class="alternativa" data-resposta="tomar vitamina C regularmente">c) Tomar vitamina C regularmente
+            </div>
+            <div class="pergunta" data-numero="2">Qual é o período de incubação do vírus da dengue após a picada do
+                mosquito?
+                <div class="alternativaContainer">
+                    <div class="alternativa" data-resposta="1 a 2 dias">a) 1 a 2 dias</div>
+                    <div class="alternativa" data-resposta="4 a 10 dias" data-resposta-certa="true">b) 4 a 10 dias</div>
+                    <div class="alternativa" data-resposta="15 a 20 dias">c) 15 a 20 dias</div>
+                </div>
+            </div>
+            <div class="pergunta" data-numero="3">Qual é o principal vetor da dengue?
+                <div class="alternativaContainer">
+                    <div class="alternativa" data-resposta="aedes aegypti" data-resposta-certa="true">a) Aedes aegypti
+                    </div>
+                    <div class="alternativa" data-resposta="culex quinquefasciatus">b) Culex quinquefasciatus</div>
+                    <div class="alternativa" data-resposta="anopheles">c) Anopheles</div>
+                </div>
+            </div>
+            <div class="pergunta" data-numero="4">Qual é a forma de prevenção mais eficaz contra a dengue?
+                <div class="alternativaContainer">
+                    <div class="alternativa"
+                        data-resposta="eliminar criadouros do mosquito, como recipientes com água parada"
+                        data-resposta-certa="true">a) Eliminar criadouros do mosquito, como recipientes com água parada
+                    </div>
+                    <div class="alternativa" data-resposta="usar repelente todos os dias">b) Usar repelente todos os
+                        dias</div>
+                    <div class="alternativa" data-resposta="tomar vitamina C regularmente">c) Tomar vitamina C
+                        regularmente</div>
+                </div>
+            </div>
+            <div class="pergunta" data-numero="5">Quantos sorotipos diferentes do vírus da dengue existem?
+                <div class="alternativaContainer">
+                    <div class="alternativa" data-resposta="2 tipos">a) 2 tipos</div>
+                    <div class="alternativa" data-resposta="3 tipos">b) 3 tipos</div>
+                    <div class="alternativa" data-resposta="4 tipos" data-resposta-certa="true">c) 4 tipos</div>
+                </div>
+            </div>
+            <div class="pergunta" data-numero="6">Qual dos seguintes exames é utilizado para confirmar a infecção por
+                dengue?
+                <div class="alternativaContainer">
+                    <div class="alternativa" data-resposta="eletrocardiograma">a) Eletrocardiograma (ECG)</div>
+                    <div class="alternativa" data-resposta="teste de elisa" data-resposta-certa="true">b) Teste de ELISA
+                    </div>
+                    <div class="alternativa" data-resposta="ressonancia magnetica">c) Ressonância magnética (RM)</div>
+                </div>
+            </div>
+            <div class="pergunta" data-numero="7">Qual é o agente causador da dengue?
+                <div class="alternativaContainer">
+                    <div class="alternativa" data-resposta="vírus" data-resposta-certa="true">a) Vírus</div>
+                    <div class="alternativa" data-resposta="bactéria">b) Bactéria</div>
+                    <div class="alternativa" data-resposta="fungos">c) Fungos</div>
+                </div>
+            </div>
+            <div class="pergunta" data-numero="8">Qual desses sintomas NÃO é comum na dengue?
+                <div class="alternativaContainer">
+                    <div class="alternativa" data-resposta="dor muscular">a) Dor muscular</div>
+                    <div class="alternativa" data-resposta="coceira" data-resposta-certa="true">b) Coceira</div>
+                    <div class="alternativa" data-resposta="dor nas articulações">c) Dor nas articulações</div>
+                </div>
+            </div>
+            <div class="pergunta" data-numero="9">Em qual estação do ano a dengue é mais comum?
+                <div class="alternativaContainer">
+                    <div class="alternativa" data-resposta="inverno">a) Inverno</div>
+                    <div class="alternativa" data-resposta="verão" data-resposta-certa="true">b) Verão</div>
+                    <div class="alternativa" data-resposta="outono">c) Outono</div>
+                </div>
+            </div>
+            <div class="pergunta" data-numero="10">Qual é a principal característica do mosquito Aedes aegypti?
+                <div class="alternativaContainer">
+                    <div class="alternativa" data-resposta="ele é maior que outros mosquitos">a) Ele é maior que outros
+                        mosquitos</div>
+                    <div class="alternativa" data-resposta="ele tem listras brancas e pretas no corpo"
+                        data-resposta-certa="true">b) Ele tem listras brancas e pretas no corpo</div>
+                    <div class="alternativa" data-resposta="ele só pica durante a noite">c) Ele só pica durante a noite
+                    </div>
+                </div>
+            </div>
+            <div class="pergunta" data-numero="11">Qual o nome da proteína que o teste de ELISA detecta para confirmar a
+                dengue?
+                <div class="alternativaContainer">
+                    <div class="alternativa" data-resposta="hemoglobina">a) Hemoglobina</div>
+                    <div class="alternativa" data-resposta="antígeno ns1" data-resposta-certa="true">b) Antígeno NS1
+                    </div>
+                    <div class="alternativa" data-resposta="albumina">c) Albumina</div>
+                </div>
+            </div>
+            <div class="pergunta" data-numero="12">Qual é a complicação mais grave da dengue?
+                <div class="alternativaContainer">
+                    <div class="alternativa" data-resposta="dengue clássica">a) Dengue clássica</div>
+                    <div class="alternativa" data-resposta="dengue hemorrágica" data-resposta-certa="true">b) Dengue
+                        hemorrágica</div>
+                    <div class="alternativa" data-resposta="dengue tipo 2">c) Dengue tipo 2</div>
+                </div>
+            </div>
+            <div class="pergunta" data-numero="13">Qual é a taxa de mortalidade aproximada da dengue grave sem
+                tratamento adequado?
+                <div class="alternativaContainer">
+                    <div class="alternativa" data-resposta="5%">a) 5%</div>
+                    <div class="alternativa" data-resposta="20%" data-resposta-certa="true">b) 20%</div>
+                    <div class="alternativa" data-resposta="35%">c) 35%</div>
+                </div>
+            </div>
+            <div class="pergunta" data-numero="14">Além do Aedes aegypti, qual outro mosquito pode transmitir a dengue?
+                <div class="alternativaContainer">
+                    <div class="alternativa" data-resposta="anopheles">a) Anopheles</div>
+                    <div class="alternativa" data-resposta="aedes albopictus" data-resposta-certa="true">b) Aedes
+                        albopictus</div>
+                    <div class="alternativa" data-resposta="culex pipiens">c) Culex pipiens</div>
+                </div>
+            </div>
+            <div class="pergunta" data-numero="15">Em que década a dengue se tornou um problema de saúde pública no
+                Brasil?
+                <div class="alternativaContainer">
+                    <div class="alternativa" data-resposta="década de 1950">a) Década de 1950</div>
+                    <div class="alternativa" data-resposta="década de 1980" data-resposta-certa="true">b) Década de 1980
+                    </div>
+                    <div class="alternativa" data-resposta="década de 2000">c) Década de 2000</div>
                 </div>
             </div>
         </div>
+    </div>
     </main>
-    <!-- <footer>
-        <nav class="footer">
-            <div class="footer-links"></div>
-            <ul>
-                <li><a href="../index.html"><i class="fa-solid fa-house"></i></a></li>
-                <li><a href="../info/info.html"><i class="fa-solid fa-mosquito"></i></a></li>
-                <li><a href="./game.html"><i class="fa-solid fa-gamepad"></i></a></li>
-            </ul>
-        </nav>
-    </footer> -->
 </body>
 </html>

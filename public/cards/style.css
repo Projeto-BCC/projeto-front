@@ -1,10 +1,35 @@
 body {
   background-color: #F2F2F2;
-  padding-top: 48px; 
+  padding-top: 48px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+
+header {
+  background-color: #243563;
+  color: white;
+}
+
+header .navbar-brand p.title-header {
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+}
+
+header .navbar-nav {
+  margin-left: auto;
+}
+
+header .nav-item {
+  margin-left: 15px;
+}
+
+header .nav-link,
+header .navbar-toggler-icon {
+  color: white !important;
+}
+
 
 .container.bg-white {
   background-color: #FFF;

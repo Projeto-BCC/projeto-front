@@ -4,8 +4,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-  }
-  header {
+}
+
+header {
     background-color: #243563;
     color: white;
 }
@@ -29,11 +30,75 @@ header .navbar-toggler-icon {
     color: white !important;
 }
 
-main {
-    flex-grow: 1;
-    padding: 20px;
+#home-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Certifique-se que fica por cima do conteúdo principal */
+    font-family: "Baloo Bhaijaan 2", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
 }
 
+.title {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#start-game {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background-color: #243463;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#start-game:hover {
+    background-color: #50D576;
+}
+
+.mosquito-img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+main{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: "Baloo Bhaijaan 2", sans-serif;
+    font-weight: 500;
+    font-size: 26px;
+}
+
+.mainClass {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 nav ul {
     list-style: none;
@@ -66,13 +131,10 @@ footer {
 .footer-links a {
     color: white;
     text-decoration: none;
-
 }
 
 @media screen and (max-width: 600px) {
-
-    header,
-    footer {
+    header, footer {
         padding: 10px 0;
     }
 
@@ -85,45 +147,87 @@ footer {
     }
 }
 
-.hp {
+.game-container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin-bottom: 20px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.player-container, .zika-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.vida-player,
-.vida-zika {
+.player-info, .zika-info {
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.player-sprite, .zika-sprite {
     width: 200px;
-    height: 20px;
+    height: 200px;
+}
+
+.player-stats, .zika-stats {
+    margin-top: 10px;
+}
+
+.player-name, .zika-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.player-level, .zika-level {
+    font-size: 14px;
+}
+
+.player-hp-bar, .zika-hp-bar {
+    width: 200px;
+    height: 10px;
     background-color: #ddd;
     border-radius: 5px;
-    margin-bottom: 25px;
+    margin-top: 5px;
 }
 
-.vida-atual-player,
-.vida-atual-zika {
+.player-hp-fill {
     height: 100%;
+    background-color: #64B5F6;
     border-radius: 5px;
-    transition: width 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 
-.vida-atual-player {
-    background-color: #007bff;
+.zika-hp-fill{
+    height: 100%;
+    background-color: #E57373;
+    border-radius: 5px;
+    transition: 0.5s ease-in-out;
 }
 
-.vida-atual-zika {
-    background-color: #dc3545;
+.player-hp, .zika-hp {
+    font-size: 12px;
+    margin: 0 10px;
 }
-
 
 #btn-iniciar {
-    padding: 10px 20px;
-    background-color: #007bff;
+    padding: 20px;
+    background-color: #243463;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
+#btn-iniciar:hover{
+    background-color: #50D576;
+}
 
 #mensagem-vitoria {
     font-size: 24px;
@@ -132,16 +236,46 @@ footer {
     display: none;
 }
 
+.pergunta-container {
+    width: 80%;
+    margin-top: 20px;
+}
 
 .pergunta {
     display: none;
     margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 5px;
 }
 
 .pergunta.ativa {
     display: block;
 }
 
+.alternativaContainer{
+    margin: 20px;
+}
+
 .alternativa {
     margin-bottom: 10px;
+    padding: 10px;
+    background-color: #eee;
+    border: 1px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
 }
+
+.correct {
+    background-color: #C6F7D0; /* Verde */
+    color: #2E865F;
+  }
+  
+  .incorrect {
+    background-color: #F7CAC9; /* Vermelho */
+    color: #E74C3C;
+  }
+
+
+
